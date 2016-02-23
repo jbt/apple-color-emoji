@@ -13,11 +13,13 @@ var font = fontkit.openSync('/System/Library/Fonts/Apple Color Emoji.ttf');
 var set = regenerate();
 var extraParts = [];
 
+var size = +process.argv[2];
+
 // Optionally specify characters in case identical glyphs can be produced with two distinct sets of characters
 // e.g. 🇨🇵 and 🇫🇷
 function writeImage(glyph, unicode_characters) {
   // extract an image for this glyph
-  var image = glyph.getImageForSize(64);
+  var image = glyph.getImageForSize(size);
   
   if (image) {
     // compute the filename
